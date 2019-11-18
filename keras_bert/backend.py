@@ -10,7 +10,7 @@ __all__ = [
 TF_KERAS = strtobool(os.environ.get('TF_KERAS', '0'))
 
 if TF_KERAS:
-    from tensorflow.python import keras
+    from tensorflow_core.python import keras
 else:
     import keras
 

@@ -1,7 +1,8 @@
 import json
 import codecs
 import numpy as np
-import tensorflow as tf
+from tensorflow_core.python.training.checkpoint_utils import load_variable
+
 from .backend import keras
 from .bert import get_model
 
@@ -15,7 +16,7 @@ __all__ = [
 
 def checkpoint_loader(checkpoint_file):
     def _loader(name):
-        return tf.train.load_variable(checkpoint_file, name)
+        return load_variable(checkpoint_file, name)
     return _loader
 
 
